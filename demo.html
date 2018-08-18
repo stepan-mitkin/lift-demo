@@ -1,0 +1,215 @@
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+		<meta name="description" content="An online interactive demo of automata-based programming with DRAKON" />
+		
+		
+		<title>Automata-based programming with DRAKON</title>
+		<style>
+			/* http://meyerweb.com/eric/tools/css/reset/ 
+			   v2.0 | 20110126
+			   License: none (public domain)
+			*/
+
+			html, body, div, span, applet, object, iframe,
+			h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+			a, abbr, acronym, address, big, cite, code,
+			del, dfn, em, img, ins, kbd, q, s, samp,
+			small, strike, strong, sub, sup, tt, var,
+			b, u, i, center,
+			dl, dt, dd, ol, ul, li,
+			fieldset, form, label, legend,
+			table, caption, tbody, tfoot, thead, tr, th, td,
+			article, aside, canvas, details, embed, 
+			figure, figcaption, footer, header, hgroup, 
+			menu, nav, output, ruby, section, summary,
+			time, mark, audio, video {
+				margin: 0;
+				padding: 0;
+				border: 0;
+				font-size: 100%;
+				font: inherit;
+				vertical-align: baseline;
+			}
+			/* HTML5 display-role reset for older browsers */
+			article, aside, details, figcaption, figure, 
+			footer, header, hgroup, menu, nav, section {
+				display: block;
+			}
+			body {
+				line-height: 1;
+			}
+			ol, ul {
+				list-style: none;
+			}
+			blockquote, q {
+				quotes: none;
+			}
+			blockquote:before, blockquote:after,
+			q:before, q:after {
+				content: '';
+				content: none;
+			}
+			table {
+				border-collapse: collapse;
+				border-spacing: 0;
+			}
+			/* -- end of reset.css -- */
+
+			td {
+				vertical-align: middle;
+			}
+		</style>		
+		
+		<style>
+			body {
+			  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+			  font-size:20px;
+			}
+
+			strong {
+				font-weight: bold;
+			}
+
+			p {
+				margin:10px;
+				line-height: 130%;
+				text-align: justify;
+			}	
+			
+			li {
+				line-height: 130%;
+				text-align: justify;
+			}					
+			
+			.button {
+				padding: 10px;
+				border-radius: 4px;
+				border: solid 1px #404080;
+				color: white;
+				background: #404080;
+				text-align: center;
+				margin: 5px;
+				cursor: pointer;
+			}
+			
+			.button:active {
+				transform: translate(0px, 2px);
+			}
+			
+			a.button {
+				text-decoration:none;
+				display:inline-block;
+			}
+			
+			.lit_button {
+				background: yellow;
+				color: black;
+			}
+			
+			h1 {
+				margin:10px;
+				margin-bottom:20px;
+				margin-top:20px;
+				font-size:200%;
+				font-weight:bold;
+				text-align:center;
+			}
+			
+			h2 	{
+				margin:10px;
+				margin-top:50px;
+				font-size:160%;
+				font-weight:bold;
+				text-align:left;
+			}
+			
+			h3 	{
+				margin:10px;
+				margin-top:20px;
+				font-size:120%;
+				font-weight:bold;
+				text-align:left;
+			}
+			ul {
+				list-style-type: disc;
+				padding-left:30px;
+				margin-bottom:10px;
+			}
+
+			ul li {
+				display: list-item;
+				text-align: left;
+			}
+
+			ol {
+				list-style-type: decimal;
+				padding-left:30px;
+				margin-bottom:10px;
+			}
+
+			ol li {
+				display: list-item;
+				text-align: justify;
+			}
+			
+			
+			
+			table.test_table {
+				border-collapse: collapse;
+				margin-bottom: 20px;
+			}
+
+			table.test_table, table.test_table th, table.test_table td {
+				border: 1px solid black;
+			}
+			
+			.main_text {
+				max-width: 800px;
+				margin:auto;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="main_text">
+			<h1>Automata-based programming with DRAKON</h1>
+			<p>See the <a href="https://drakonhub.com/files/lift.html">article</a>.</p>
+			<p>The source code for this demo has been generated from DRAKON diagrams.</p>
+			<p style="text-align:left;">DRAKON Editor (needed to open the .drn files):<br />
+			<a href="http://drakon-editor.sourceforge.net/editor.html">http://drakon-editor.sourceforge.net/editor.html</a><br />
+			<a href="https://github.com/stepan-mitkin/drakon_editor">https://github.com/stepan-mitkin/drakon_editor</a></p>
+		</div>
+		<div class="main_text">
+			<h2 id="demo">The demo</h2>
+			<p>Press the buttons below to play with the lift.</p>
+		</div>
+		<div style="margin:auto; max-width:1200px;">
+			<div id="lift"></div>
+			<div id="vis" style="max-width:400px;"></div>
+		</div>
+		<div class="main_text">
+			<h2 id="testing">Testing</h2>
+
+			<div id="test">
+				<div style="text-align:center;">
+					<div onclick="code.runTests()" class="button" style="display:inline-block; min-width:200px; max-width:400px;">Run the tests now</div>
+				</div>				
+			</div>
+	
+			<div style="height:50px;"></div>
+			<p>Contact: stipan.mitkin@gmail.com</p>
+		</div>
+		
+		<script src="HieSm.js" ></script>
+		<script src="LiftLogic.js" ></script>
+		<script src="Lift.js" ></script>
+		<script>
+
+		var code = new Lift(window, document)
+
+		code.init(4)
+
+		</script>
+	</body>
+</html>
